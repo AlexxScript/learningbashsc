@@ -1,0 +1,8 @@
+#! /bin/bash
+
+# Convierte un .bmp en un .jpg
+fichero_entrada=${1:?'falta argumento'}
+fichero_intermedio=${fichero_entrada%.bmp}.ppm
+fichero_salida=${2:-${fichero_intermedio%.ppm}.jpg}
+bmptoppm $fichero_entrada > $fichero_intermedio
+ppmtojpeg $fichero_intermedio > $fichero_salida

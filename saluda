@@ -1,0 +1,10 @@
+#! /bin/bash
+
+# Script que llama a una funcion para saludar
+
+function DiHola {
+	echo "Hola $1"
+}
+
+#es necesario colocar el parametro después de llamar a la función para que sea tomado en cuenta
+DiHola $1

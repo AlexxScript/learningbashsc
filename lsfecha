@@ -1,0 +1,10 @@
+#! /bin/bash
+# Script que encuentra los ficheros modificados en una
+# determinada fecha con el formato '14 Jun' que usa
+# ls -lad para dar las fechas de modificacion
+# Funcion que lista ficheros del directorio
+# actual modificados en la fecha $1
+function ListaFecha {
+ls -lad * | grep "$1" | cut -c54-
+}
+ls -lad $(ListaFecha "$1")

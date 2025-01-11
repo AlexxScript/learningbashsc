@@ -1,0 +1,10 @@
+#! /bin/bash
+# Script que saca los mejores clientes
+# Tiene la forma:
+# mejoresclientes <fichero> [<cuantos>]
+
+fichero=${1:?'fichero no suministrado'}
+cuantos=$2
+defecto=5
+
+sort -nr $fichero | head -${cuantos:=$defecto}

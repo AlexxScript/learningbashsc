@@ -1,0 +1,12 @@
+#! /bin/bash
+
+# Ejemplo de variable global
+
+function EstasAqui {
+	donde='Dentro de la funcion'
+}
+
+donde='En el script'
+echo $donde
+EstasAqui
+echo $donde

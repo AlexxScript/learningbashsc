@@ -1,0 +1,20 @@
+#! /bin/bash
+
+# Funciones que implementan un movimiento en pila
+# por los directorios
+# Funcion que recibe en $1 el directorio al que cambiar,
+# cambia y lo almacena en la pila PILADIR
+function ira {
+	if cd ${1:?"falta el directorio como argumento"} ; then
+		PILADIR="$1 ${PILADIR:-$PWD}"
+		echo $PILADIR
+	else 
+		echo "Directorio $1 no valido"
+	fi
+}
+
+function volver {
+	PILADIR=${PILADIR#* }
+	cd ${PILADIR%% *}
+	echo $PILADIR
+}

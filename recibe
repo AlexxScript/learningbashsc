@@ -1,0 +1,9 @@
+#! /bin/bash
+
+# Ejemplo de script que recibe parametros y los imprime
+
+#el parametro $0 hace referencia almacena el nombre del script donde se ejecuta
+echo "El script $0"
+
+echo "Recibe los parametros $1 $2 $3 $4"
+

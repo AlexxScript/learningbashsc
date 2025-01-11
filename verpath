@@ -1,0 +1,5 @@
+#! /bin/bash
+
+ruta=${1//:/'\n'}
+
+echo -e $ruta
