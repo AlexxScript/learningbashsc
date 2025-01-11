@@ -5,16 +5,30 @@
 # Funcion que recibe en $1 el directorio al que cambiar,
 # cambia y lo almacena en la pila PILADIR
 function ira {
-	if cd ${1:?"falta el directorio como argumento"} ; then
-		PILADIR="$1 ${PILADIR:-$PWD}"
+	if [ -z "$1" ]; then
+		echo "Use ira <directorio>"
+		return 1
+	fi
+	if [ "$1" -ef "$PWD" ]; then
+		echo "Ya esta en el directorio $PWD"
+		return 2
+	fi
+	if [ \( -d "$1" \) -a \( -x "$1" \) ]; then
+		cd $1
+		PILADIR="$1 ${PILADIR:-$OLDPWD}"
 		echo $PILADIR
-	else 
+	else
 		echo "Directorio $1 no valido"
 	fi
 }
 
+
 function volver {
-	PILADIR=${PILADIR#* }
-	cd ${PILADIR%% *}
-	echo $PILADIR
+	if [ -n "$PILARDIR" ] ; then
+		PILADIR=${PILADIR#* }
+		cd ${PILADIR%% *}
+		echo $PILADIR
+	else
+		echo "La pila esta vacia, no se cambio de directorio"
+	fi
 }

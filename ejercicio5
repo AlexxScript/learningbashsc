@@ -1,0 +1,10 @@
+#! /bin/bash
+
+function cd(){
+	#ejecuta el comando cd que viene incluido en la terminal
+	builtin cd "$@" 
+	#guardando el codigo de terminacion
+	local ct=$?
+	echo "$OLDPWD -> $PWD"
+	return $ct
+}

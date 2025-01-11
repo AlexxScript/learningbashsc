@@ -1,9 +1,20 @@
 #! /bin/bash
 # Script que saca los mejores clientes
 # Tiene la forma:
-# mejoresclientes <fichero> [<cuantos>]
+# impresion <fichero> [<cuantos>]
 
-fichero=${1:?'fichero no suministrado'}
+fichero=$1
+
+if [ $# -lt 1 ] ; then 
+	echo 'impresion: Did not recive parameters'
+	exit 1
+fi
+
+if [ -z $fichero ] ; then
+	echo 'Use: impresion <fichero_clientes> [<N>]'
+	exit 1
+fi
+
 cuantos=$2
 defecto=5
 

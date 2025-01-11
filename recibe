@@ -3,7 +3,17 @@
 # Ejemplo de script que recibe parametros y los imprime
 
 #el parametro $0 hace referencia almacena el nombre del script donde se ejecuta
-echo "El script $0"
+#echo "El script $0"
 
-echo "Recibe los parametros $1 $2 $3 $4"
+#echo "Recibe los parametros $1 $2 $3 $4"
+
+for arg in "$@"
+do
+	echo "Elemento: $arg"
+done
+
+for arg in "$*"
+do
+	echo "Elemento: $arg"
+done
 
